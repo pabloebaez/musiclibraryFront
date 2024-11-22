@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://apimusiclib.vercel.app/api/'; // Cambia esto a la URL de tu API
+const API_URL = 'https://apimusiclib.vercel.app/api'; // Cambia esto a la URL de tu API
 
 // Funciones para manejar artistas
 export const getArtists = () => axios.get(`${API_URL}/artists`);
