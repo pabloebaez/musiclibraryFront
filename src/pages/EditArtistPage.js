@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom'; // Importar Link
 import { getArtistById, updateArtist } from '../services/api';
-import './style.css';
+import styles from './css/HomePage.module.css';
 
 const EditArtistPage = () => {
   const { id } = useParams();
@@ -47,10 +47,10 @@ const EditArtistPage = () => {
   };
 
   return (
-    <div className='container'>
+    <div className={styles.container}>
       <h1>Edit Artist</h1>
-      <form className='form' onSubmit={handleSubmit}>
-        <label className='labels'>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <label className={styles.labels}>
           Name:
           <input
             type="text"
@@ -59,7 +59,7 @@ const EditArtistPage = () => {
           />
         </label>
         <br />
-        <label className='labels'>
+        <label className={styles.labels}>
           Bio:
           <textarea
             value={bio}
@@ -67,7 +67,7 @@ const EditArtistPage = () => {
           />
         </label>
         <br />
-        <label className='labels'>
+        <label className={styles.labels}>
           Photo URL:
           <input
             type="text"
@@ -76,11 +76,11 @@ const EditArtistPage = () => {
           />
         </label>
         <br />
-        <button className='boton' type="submit">Update Artist</button>
+        <button className={styles.boton} type="submit">Update Artist</button>
       </form>
       <br />
       <Link to="/">
-        <button className='boton'>Inicio</button>
+        <button className={styles.boton}>Inicio</button>
       </Link>
       
       {message && <p>{message}</p>}

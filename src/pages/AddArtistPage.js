@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addArtist } from '../services/api';
 import { Link } from 'react-router-dom'; // Importar Link
-import './style.css';
+import styles from './css/addArtist.module.css';
 
 const AddArtistPage = () => {
   const [name, setName] = useState('');
@@ -31,42 +31,54 @@ const AddArtistPage = () => {
   };
 
   return (
-    <div className='container'>
-      <h1>Add Artist</h1>
-      <form className='form' onSubmit={handleSubmit}>
-        <label className='labels'>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <br />
-        <label className='labels'>
-          Bio:
-          <textarea
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-          />
-        </label>
-        <br />
-        <label className='labels'>
-          Photo URL:
-          <input
-            type="text"
-            value={photoUrl}
-            onChange={(e) => setPhotoUrl(e.target.value)}
-          />
-        </label>
-        <br />
-        <button className='boton' type="submit">Add Artist</button>
-      </form>
+    <div className={styles.container}>
+      <h1>Agregar Artista</h1>
+      <div className={styles.formulario}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.labels}>
+            Name:
+            <input
+              type="text" 
+              placeholder='Nombre del Artista'
+              className={styles.input}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+          <br />
+          <label className={styles.labels}>
+            Bio:
+            <textarea
+              className={styles.input}
+              placeholder='Biografia del Artista'
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+            />
+          </label>
+          <br />
+          <label className={styles.labels}>
+            Photo URL:
+            <input
+              type="text"
+              placeholder='URL de la foto del Artista'
+              className={styles.input}
+              value={photoUrl}
+              onChange={(e) => setPhotoUrl(e.target.value)}
+            />
+          </label>
+          <br />
+          <div className={styles.botonContainer}>
+            <button className={styles.boton} type="submit">Add Artist</button>
+            <Link to="/">
+        <button className={styles.boton}>Inicio</button>
+      </Link>
+          </div>
+        </form>
+      </div>
+      
       <br />
       {/* Botón para ir a la página de inicio */}
-      <Link to="/">
-        <button className='boton'>Inicio</button>
-      </Link>
+      
       
       {message && <p>{message}</p>}
     </div>

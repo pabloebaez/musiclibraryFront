@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom'; // Importar Link
 import { deleteArtist, getArtistById } from '../services/api';
-import './style.css'; // Asegúrate de tener los estilos adecuados
+import styles from './css/HomePage.module.css';
 
 const DeleteArtistPage = () => {
   const [artist, setArtist] = useState(null);
@@ -41,7 +41,7 @@ const DeleteArtistPage = () => {
   };
 
   return (
-    <div className='container'>
+    <div className={styles.container}>
       <h1>Eliminar Artista</h1>
       {message ? (
         <p>{message}</p>
@@ -53,11 +53,11 @@ const DeleteArtistPage = () => {
             <p><strong>Biografía:</strong> {artist.bio}</p>
           </div>
           <p>¿Estás seguro de que quieres eliminar al artista {artist.name}?</p>
-          <div className='botones'> 
-          <button onClick={handleDelete} className='boton'>Eliminar Artista</button>
+          <div className={styles.botones}> 
+          <button onClick={handleDelete} className={styles.boton}>Eliminar Artista</button>
                     {/* Botón para ir a la página de inicio */}
           <Link to="/">
-            <button className='boton'>Inicio</button>
+            <button className={styles.boton}>Inicio</button>
           </Link>
           </div>
         </div>

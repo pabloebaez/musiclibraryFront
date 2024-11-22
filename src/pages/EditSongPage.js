@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom'; // Importa Link
 import { getSongById, updateSong, getArtistByName } from '../services/api';
-import './style.css'; 
+import styles from './css/HomePage.module.css';
 
 const EditSongPage = () => {
   const { id } = useParams(); // Obtén el parámetro de la ruta usando useParams
@@ -61,10 +61,10 @@ const EditSongPage = () => {
   };
 
   return (
-    <div className='container'>
+    <div className={styles.container}>
       <h2>Edit Song</h2>
       <form onSubmit={handleSubmit}>
-        <label className='labels'>
+        <label className={styles.labels}>
           Title:
           <input
             type="text"
@@ -73,7 +73,7 @@ const EditSongPage = () => {
           />
         </label>
         <br />
-        <label className='labels'>
+        <label className={styles.labels}>
           Artist Name:
           <input
             type="text"
@@ -82,7 +82,7 @@ const EditSongPage = () => {
           />
         </label>
         <br />
-        <label className='labels'>
+        <label className={styles.labels}>
           Release Year:
           <input
             type="number"
@@ -91,7 +91,7 @@ const EditSongPage = () => {
           />
         </label>
         <br />
-        <label className='labels'>
+        <label className={styles.labels}>
           Duration (seconds):
           <input
             type="number"
@@ -100,7 +100,7 @@ const EditSongPage = () => {
           />
         </label>
         <br />
-        <label className='labels'>
+        <label className={styles.labels}>
           Cover URL:
           <input
             type="text"
@@ -109,16 +109,16 @@ const EditSongPage = () => {
           />
         </label>
         <br />
-        <div className='botones'>
-        <button type="submit" className='boton'>Update Song</button>
+        <div className={styles.botones}>
+        <button type="submit" className={styles.boton}>Update Song</button>
         </div>
       </form>
       {message && <p>{message}</p>}
       {/* Botón para ir a la página de inicio */}
       <br></br>
-      <div className='botones'>
+        <div className={styles.botones}>
       <Link to="/">
-        <button className='boton'>Inicio</button>
+        <button className={styles.boton}>Inicio</button>
       </Link>
       </div>
     </div>

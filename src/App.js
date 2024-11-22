@@ -12,11 +12,12 @@ import AddSongPage from './pages/AddSongPage';
 import EditSongPage from './pages/EditSongPage';
 import DeleteSongPage from './pages/DeleteSongPage'; // Importa DeleteSongPage
 import HomePage from './pages/HomePage';
+import styles from './App.module.css';
 
 function App() {
   return (
     <Router>
-      <div>
+      <div className={styles.appContainer}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/artists" element={<ArtistList />} />

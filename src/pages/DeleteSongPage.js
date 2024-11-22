@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom'; // Importa Link
 import { getSongById, deleteSong } from '../services/api';
-import './style.css'; // Importa el archivo de estilos CSS
+import styles from './css/HomePage.module.css';
 
 const DeleteSongPage = () => {
   const { id } = useParams();
@@ -34,19 +34,19 @@ const DeleteSongPage = () => {
   if (!song) return <p>Cargando...</p>;
 
   return (
-    <div className="container2">
+    <div className={styles.container2}>
       <h1>Eliminar Canción</h1>
-      <h2 className='title2'>{song.title}</h2>
-      <p className='title2'><strong>Artista:</strong> {song.Artist ? song.Artist.name : 'Artista no disponible'}</p>
-      <p className='title2'><strong>Año de Lanzamiento:</strong> {song.releaseYear}</p>
-      <p className='title2'><strong>Duración:</strong> {song.duration} segundos</p>
+      <h2 className={styles.title2}>{song.title}</h2>
+      <p className={styles.title2}><strong>Artista:</strong> {song.Artist ? song.Artist.name : 'Artista no disponible'}</p>
+      <p className={styles.title2}><strong>Año de Lanzamiento:</strong> {song.releaseYear}</p>
+      <p className={styles.title2}><strong>Duración:</strong> {song.duration} segundos</p>
       <img src={song.coverUrl} alt={song.title} width="200" />
       <br></br>
-      <button onClick={handleDelete} className="boton">Eliminar</button>
+      <button onClick={handleDelete} className={styles.boton}>Eliminar</button>
       <p>{message}</p>
       {/* Botón para ir a la página de inicio */}
       <Link to="/">
-        <button className="boton">Inicio</button>
+        <button className={styles.boton}>Inicio</button>
       </Link>
     </div>
   );
