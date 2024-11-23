@@ -6,7 +6,13 @@ const API_URL = 'https://apimusiclib.vercel.app/api'; // Cambia esto a la URL de
 export const getArtists = () => axios.get(`${API_URL}/artists`);
 export const getArtistById = (id) => axios.get(`${API_URL}/artists/${id}`);
 export const getArtistByName = (name) => axios.get(`${API_URL}/artists/by-name/${name}`); // Nueva función añadida
-export const addArtist = (artist) => axios.post(`${API_URL}/artists`, artist);
+export const addArtist = (artist) => {
+  return axios.post(`${API_URL}/artists`, artist, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+};
 export const updateArtist = (id, artist) => axios.put(`${API_URL}/artists/${id}`, artist); // Cambiado a PUT
 export const deleteArtist = (id) => axios.delete(`${API_URL}/artists/${id}`);
 

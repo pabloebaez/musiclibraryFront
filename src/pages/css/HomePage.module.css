@@ -142,7 +142,7 @@ img {
     margin-top: 80px;
     display: flex;
     justify-content: center;
-    background-color: #5f8278;
+    background: linear-gradient(to right, #4f5553, #8FA79F);
     font-size: 10px;
     color: #ffffff;
     padding: 5px;
