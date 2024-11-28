@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getArtists } from '../services/api';
+import styles from '../components/css/list.module.css';
 
 const ArtistList = () => {
   const [artists, setArtists] = useState([]);
@@ -25,24 +26,26 @@ const ArtistList = () => {
 
   return (
     <div>
-      <h1>Artists</h1>
-      <ul>
-        {artists.map((artist) => (
-          <li key={artist.id} style={{ marginBottom: '20px' }}>
-            <div>
-              <img
+      <h1 className={styles.tituloPrincipal}>Artistas</h1>
+      <div className={styles.container}>
+        <ul>
+          {artists.map((artist) => (
+          <li key={artist.id} className={styles.container__item}>
+            <img
                 src={artist.photoUrl}
                 alt={artist.name}
-                style={{ width: '100px', height: '100px', borderRadius: '50%' }}
-              />
-            </div>
-            <div>
+                className={styles.container__item__img}
+            />
+            
+            <div className={styles.container__item__info}>
               <h2>{artist.name}</h2>
-              <p>{artist.bio}</p>
+              <p className={styles.container__item__info__bio}>{artist.bio}</p>
             </div>
+            <div className={styles.linea}></div>
           </li>
         ))}
-      </ul>
+        </ul>
+      </div>
     </div>
   );
 };

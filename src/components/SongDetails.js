@@ -34,7 +34,7 @@ const SongDetails = () => {
       <img 
         src={song.coverUrl} 
         alt={song.title} 
-        style={{ width: '200px', height: '200px', objectFit: 'cover' }} 
+        style={{ maxWidth: '200px', maxHeight: '200px', objectFit: 'cover', borderRadius: '50%' }} 
       />
       <p><strong>Artist:</strong> {artist.name}</p>
       <p className='text'><strong>Year of Release:</strong> {song.releaseYear}</p>

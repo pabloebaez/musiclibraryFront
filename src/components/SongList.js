@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getSongs, getArtistById } from '../services/api';
+import styles from '../components/css/list.module.css';
 
 const SongList = () => {
   const [songs, setSongs] = useState([]);
@@ -41,26 +42,29 @@ const SongList = () => {
 
   return (
     <div>
-      <h1>Songs</h1>
-      <ul>
+      <h1 className={styles.tituloPrincipal}>Canciones</h1>
+      <div className={styles.container}>
+      <ul className={styles.container__list}>
         {songs.map((song) => (
-          <li key={song.id} style={{ marginBottom: '20px', display: 'flex', alignItems: 'center' }}>
-            <div style={{ marginRight: '20px' }}>
-              <img
+          <li key={song.id} className={styles.container__item}>
+
+            <img
                 src={song.coverUrl}
                 alt={song.title}
-                style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-              />
-            </div>
-            <div>
+                className={styles.container__item__img}
+            />  
+            
+            <div className={styles.container__item__info}>
               <h2>{song.title}</h2>
               <p><strong>Artist:</strong> {artists[song.artistId]}</p>
               <p><strong>Release Year:</strong> {song.releaseYear}</p>
               <p><strong>Duration:</strong> {Math.floor(song.duration / 60)}:{song.duration % 60}</p>
             </div>
+            <div className={styles.linea}></div>
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };

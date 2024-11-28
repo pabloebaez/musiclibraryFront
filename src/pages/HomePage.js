@@ -109,12 +109,13 @@ const HomePage = () => {
                     <h3>
                       <Link className={styles.links} to={`/artist/${artist.id}`}>{artist.name}</Link>
                     </h3>
-                    <p className={styles.descripcion}>{artist.bio}</p>
                     <img 
                       src={artist.photoUrl} 
                       alt={artist.name} 
                       className={styles.imagen} 
                     />
+                    <p className={styles.descripcion}>{artist.bio}</p>
+                    
                     <div className={styles.linea}></div>
                   </li>
                 ))
@@ -137,19 +138,23 @@ const HomePage = () => {
                     <h3>
                       <Link className={styles.links} to={`/song/${song.id}`}>{song.title}</Link>
                     </h3>
-                    <p className={styles.descripcion}>
-                      <strong>Artist:</strong> 
-                      <Link to={`/artist/${song.artistId}`}>
-                        {artists.find(artist => artist.id === song.artistId)?.name}
-                      </Link>
-                    </p>
-                    <p className={styles.descripcion}><strong>Release Year:</strong> {song.releaseYear}</p>
-                    <p className={styles.descripcion}><strong>Duration:</strong> {Math.floor(song.duration / 60)}:{song.duration % 60 < 10 ? '0' : ''}{song.duration % 60} minutes</p>
                     <img 
                       src={song.coverUrl} 
                       alt={song.title} 
                       className={styles.imagen} 
                     />
+                    <div className={styles.textoInfo}>
+                      <p className={styles.descripcion}>
+                        <strong>Artista: </strong> 
+                        <Link to={`/artist/${song.artistId}`}>
+                          {artists.find(artist => artist.id === song.artistId)?.name}
+                        </Link>
+                      </p>
+                    <p className={styles.descripcion}><strong>Año de lanzamiento: </strong> {song.releaseYear}</p>
+                    <p className={styles.descripcion}><strong>Duración: </strong> {Math.floor(song.duration / 60)}:{song.duration % 60 < 10 ? '0' : ''}{song.duration % 60} minutos</p>
+                    </div>
+                    
+                    
                     <div className={styles.linea}></div>
                   </li>
                 ))

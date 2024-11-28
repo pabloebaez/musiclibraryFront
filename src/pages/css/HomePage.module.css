@@ -157,6 +157,55 @@ img {
     text-decoration: none;
   }
 
+  .resultados{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8FA79F;
+  }
+  .detallesR{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    /* background-color: #70C184; */
+  }
+
+
+  .li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    background-color: #708e84;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border: 1px solid #4f5553;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+
+  }
+  .li2{
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    background-color: #708e84;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+  }
+
+  .textoInfo{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 768px) {
 
     .navbar{

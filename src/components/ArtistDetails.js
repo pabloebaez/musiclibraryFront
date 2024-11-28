@@ -31,7 +31,7 @@ const ArtistDetails = () => {
       <img 
         src={artist.photoUrl} 
         alt={artist.name} 
-        style={{ width: '200px', height: '200px', objectFit: 'cover' }} 
+        style={{ maxWidth: '200px', maxHeight: '200px', objectFit: 'cover', borderRadius: '50%' }} 
       />
       <p>{artist.bio}</p>
       
